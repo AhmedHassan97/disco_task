@@ -11,11 +11,13 @@ const HomeComponent = () => {
   const { postsFn, loading, data } = useApi();
   const { isLoggedIn, posts } = useStore();
   useEffect(() => {
+    postsFn();
+  }, []);
+  useEffect(() => {
     if (isLoggedIn === false) {
       router.push("/");
     }
-    postsFn();
-  }, [isLoggedIn, postsFn, router]);
+  }, [isLoggedIn, router]);
   return (
     <LayoutComponent>
       {loading === true && posts === [] ? <LoadingComponent /> : <div></div>}

@@ -21,10 +21,13 @@ const LoginComponent: FC = () => {
     if (isLoggedIn) {
       router.push("/home");
     }
-  });
+  }, [isLoggedIn, router]);
   const onSubmit: SubmitHandler<types.LoginForm> = async (data) => {
     setError(false);
     setLoading(true);
+    setTimeout(() => {
+      console.log("hassaan");
+    }, 5000);
     const result = await login(data);
 
     if (result === true) {
