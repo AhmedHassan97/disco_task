@@ -8,6 +8,7 @@ import LoadingComponent from "../app/components/layout/LoadingComponent";
 const Post = () => {
   const { query, push } = useRouter();
   const [post, setPost] = useState<types.Post>();
+  const [index, setIndex] = useState<Number>();
   const { posts, isLoggedIn } = useStore();
 
   useEffect(() => {
@@ -19,13 +20,20 @@ const Post = () => {
       const requiredPost: types.Post = posts.filter(
         (post: types.Post) => post.id === PostId
       )[0];
+      const index = posts.indexOf(requiredPost);
+
+      setIndex(index);
       setPost(requiredPost);
     }
   }, [query, isLoggedIn, posts, push]);
   return (
     <div>
       <LayoutComponent>
-        {post ? <PostBlogComponent post={post} /> : <LoadingComponent />}
+        {post ? (
+          <PostBlogComponent post={post} length={posts.length} index={index} />
+        ) : (
+          <LoadingComponent />
+        )}
       </LayoutComponent>
     </div>
   );

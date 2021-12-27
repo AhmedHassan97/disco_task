@@ -29,7 +29,9 @@ const PostBlogComponent = (props: any) => {
         >
           Prev
         </button>
-        <span className="mt-2">page 1 of 2</span>
+        <span className="mt-2">
+          page {props.index + 1} of {props.length}
+        </span>
         <button
           className="p-2 border-2 border-black"
           onClick={() => router.push(`/${props.post.next}`)}
