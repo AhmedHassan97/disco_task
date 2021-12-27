@@ -2,7 +2,7 @@ import NavbarComponent from "../header/NavbarComponent";
 import FooterComponent from "../footer/FooterComponent";
 const LayoutComponent = (props: any) => {
   return (
-    <div className="max-w-2xl mx-auto mt-10 bg-white">
+    <div className="max-w-2xl mx-auto bg-white text-black">
       <NavbarComponent />
       <div className="divider"></div>
       {props.children}

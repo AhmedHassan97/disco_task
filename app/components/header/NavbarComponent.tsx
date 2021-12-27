@@ -26,7 +26,7 @@ const Navigation = [
 const NavbarComponent = () => {
   const { logout } = useLogin();
   return (
-    <div className="flex flex-col space-y-10">
+    <div className="flex flex-col space-y-10 pt-10">
       <div className="flex flex-row">
         <h1 className="text-4xl text-gray-600 ">blog</h1>
         <input

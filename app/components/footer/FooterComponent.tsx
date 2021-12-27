@@ -15,7 +15,7 @@ const Navigation = [
 ];
 const FooterComponent = () => {
   return (
-    <div className="flex flex-row mb-10">
+    <div className="flex flex-row pb-10">
       <div className="space-x-5">
         {Navigation.map((nav, index) => {
           return (

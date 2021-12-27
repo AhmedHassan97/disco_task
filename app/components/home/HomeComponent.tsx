@@ -22,7 +22,7 @@ const HomeComponent = () => {
     <LayoutComponent>
       {loading === true && posts === [] ? <LoadingComponent /> : <div></div>}
       {posts ? (
-        <div>
+        <div className="space-y-3">
           {posts.map((post: types.Post) => {
             return (
               <PostCardComponent
