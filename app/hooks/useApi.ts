@@ -1,30 +1,19 @@
 import { useStore } from "../store/store";
-import { useLazyQuery } from "@apollo/client";
+import { useLazyQuery, useQuery } from "@apollo/client";
 import * as queries from "../graphql/queries";
+import { useMemo } from "react";
 
 const useApi = () => {
   const { addPosts } = useStore();
-  const [postsQuery, { data, loading }] = useLazyQuery(queries.POSTS);
-  console.log("🚀 ~ file: useApi.ts ~ line 8 ~ useApi ~ data", data);
+  const { data, loading, error } = useQuery(queries.POSTS);
 
-  const postsFn = async () => {
-    try {
-      const result = await postsQuery();
-      if (result.data.posts) {
-        console.log(
-          "🚀 ~ file: useApi.ts ~ line 13 ~ posts ~ result.data.posts",
-          result.data.posts
-        );
-
-        addPosts(result.data.posts);
-        return true;
-      }
-    } catch (error) {
-      return false;
+  const countries = useMemo(() => {
+    if (data) {
+      addPosts(data.posts);
     }
-  };
+  }, [data, addPosts]);
 
-  return { postsFn, loading, data };
+  return { error, loading, data };
 };
 
 export default useApi;
