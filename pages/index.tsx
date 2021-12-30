@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import LoginComponent from "../app/components/login/login";
-const Home: NextPage = () => {
+const Login: NextPage = () => {
   return (
     <div>
       <LoginComponent />
@@ -8,4 +8,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Login;
