@@ -5,8 +5,11 @@ const PostCardComponent = (props: any) => {
     <div>
       <div className="card lg:card-side ">
         <div className="card-body">
-          <h2 className="card-title">{props.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
+          <h1 className="card-title">{props.title}</h1>
+          <div
+            dangerouslySetInnerHTML={{ __html: props.content }}
+            role="contentinfo"
+          ></div>
           <div className="card-actions">
             <button
               className="btn btn-primary"
