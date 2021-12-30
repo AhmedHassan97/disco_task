@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import PostBlogComponent from "./PosteBlogComponent";
+import PostBlogComponent from "../../app/components/posts/PosteBlogComponent";
 
 describe("Post", () => {
   it("Post Blog renders correctly", () => {

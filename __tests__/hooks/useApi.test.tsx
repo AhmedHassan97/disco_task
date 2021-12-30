@@ -1,7 +1,7 @@
 import { MockedProvider } from "@apollo/client/testing";
 
 import { POSTS } from "../../app/graphql/queries";
-import useApi from "./useApi";
+import useApi from "../../app/hooks/useApi";
 import { renderHook } from "@testing-library/react-hooks";
 const posts = [
   {
