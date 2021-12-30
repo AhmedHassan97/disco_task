@@ -40,7 +40,13 @@ const LoginComponent: FC = () => {
 
   return (
     <div className="bg-black flex flex-col justify-center items-center min-h-screen space-y-6">
-      <Image src="/logo-02.png" alt="logo" width={200} height={100} />
+      <Image
+        src="/logo-02.png"
+        alt="logo"
+        width={200}
+        height={100}
+        role="img"
+      />
       <div className=" flex flex-col justify-center items-center">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
@@ -54,7 +60,7 @@ const LoginComponent: FC = () => {
               })}
             />
             {errors.username && (
-              <div className="mb-3 text-normal text-error">
+              <div className="mb-3 text-normal text-error" role="usernameError">
                 username is required
               </div>
             )}
@@ -63,15 +69,15 @@ const LoginComponent: FC = () => {
             <input
               type="password"
               className={`p-2 text-black border-base-content border-2 rounded-md text-xl mb-4`}
-              id="password"
               aria-label="password"
               placeholder="Password"
+              role="password"
               {...register("password", {
                 required: true,
               })}
             />
             {errors.password && (
-              <div className="mb-3 text-normal text-error">
+              <div className="mb-3 text-normal text-error" role="passwordError">
                 password is required{" "}
               </div>
             )}
@@ -81,17 +87,18 @@ const LoginComponent: FC = () => {
               className={`bg-blue-500 text-black-content p-4 px-8 hover:bg-blue-200 -focus rounded-box`}
               type="submit"
               aria-label="submitbutton"
+              name="submitButton"
             >
               Login
             </button>
             {loading && (
               <svg
-                className="animate-spin h-5 w-5 mr-3 ..."
+                className="animate-spin h-5 w-5 mr-3"
                 viewBox="0 0 24 24"
               ></svg>
             )}
             {error && (
-              <div className="mb-3 text-normal text-error">
+              <div className="mb-3 text-normal text-error" role="wrongCred">
                 username or password is incorrect
               </div>
             )}
