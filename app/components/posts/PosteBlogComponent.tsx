@@ -9,7 +9,7 @@ const PostBlogComponent = (props: any) => {
         <h1>{props.post.title}</h1>
       </div>
       <div>
-        <h5 className="text-center  text-gray-600">
+        <h5 className="text-center  text-gray-600" role="blogInformation">
           By {props.post.author.name} on {props.post.date}
         </h5>
       </div>
@@ -18,7 +18,10 @@ const PostBlogComponent = (props: any) => {
       </div>
 
       <div>
-        <div dangerouslySetInnerHTML={{ __html: props.post.content }}></div>
+        <div
+          dangerouslySetInnerHTML={{ __html: props.post.content }}
+          role="contentinfo"
+        ></div>
       </div>
       <div className="divider"></div>
 
